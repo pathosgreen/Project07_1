@@ -388,20 +388,20 @@ public class ManagerDAO {
  	public ManagerDTO[] getBooks(String book_kind, int count) {
 
  		ManagerDTO bookList[]=null;
-         
+        
  		int i = 0;
-         
-         try {
-        	 
-             conn = getConnection();
-             
-             String sql = "SELECT * FROM book WHERE book_kind=? ";
-             sql += "ORDER  BY reg_date DESC LIMIT ?,?";
-             
-             pstmt = conn.prepareStatement(sql);
-             pstmt.setString(1, book_kind);
-             pstmt.setInt(2, 0);
-             pstmt.setInt(3, count);
+        
+        try {
+        	
+            conn = getConnection();
+            
+            String sql = "SELECT * FROM book WHERE book_kind=? AND ROWNUM < 4 ";
+            sql += "ORDER BY reg_date DESC";
+            
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, book_kind);
+//             pstmt.setInt(2, 0);
+//             pstmt.setInt(3, count);
              
          	rs = pstmt.executeQuery();
 
