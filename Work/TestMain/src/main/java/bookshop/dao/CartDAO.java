@@ -40,8 +40,8 @@ public class CartDAO {
         try {
             conn = getConnection();
             sql = "insert into cart (book_id, buyer," +
-            		"book_title,buy_price,buy_count,book_image) " +
-            		"values (?,?,?,?,?,?)";
+            		"book_title,buy_price,buy_count,book_image,cart_id) " +
+            		"values (?,?,?,?,?,?,CART_SEQ.nextval)";
             pstmt = conn.prepareStatement(sql);
             
             pstmt.setInt(1, cart.getBook_id());
