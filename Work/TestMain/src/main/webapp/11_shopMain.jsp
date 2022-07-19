@@ -27,7 +27,8 @@
       <c:set var="book_kindName" value="컴퓨터"/>
     </c:if>
     <p class="b">[${book_kindName}] 분류의 신간목록:<a href="${contextPath}/list.do?book_kind=${book_kind}">더보기</a></p>
-    <c:forEach var="book" items="${bookList}"><c:out value="${contextPath}"/> 
+    <c:forEach var="book" items="${bookList}">
+    <%-- <c:out value="${contextPath}"/> --%>
      <table class="vhcenter">
       <tr height="30"> 
         <td rowspan="4"  width="100">
