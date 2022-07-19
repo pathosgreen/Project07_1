@@ -70,7 +70,7 @@
        <td width="100">
           <fmt:formatNumber value="${cart.getBuy_price()}" type="number" pattern="#,##0"/>원</td>
        <td width="150">
-          <input type="text" name="buy_count" size="5" value="${cart.getBuy_count()}">
+          <input type="text" name="buy_count" size="5" value="${cart.getBuy_count()}" disabled="disabled">
           <button id="updateSu" name="${cart.getCart_id()},${cart.getBuy_count()}" 
 	       onclick="editSu(this)">수정</button>
        </td> 
