@@ -254,7 +254,7 @@ public class ManagerDAO {
 
 			sql = "INSERT INTO book(book_id,book_kind,book_title,book_price,";
 			sql += "book_count,author,publishing_com,publishing_date,book_image,";
-			sql += "book_content,discount_rate,reg_date) VALUES (?,?,?,?,?,?,?,?,?,?,?,now())";
+			sql += "book_content,discount_rate,reg_date) VALUES (?,?,?,?,?,?,?,?,?,?,?,SYSDATE)";
 
 			pstmt = conn.prepareStatement(sql);
 

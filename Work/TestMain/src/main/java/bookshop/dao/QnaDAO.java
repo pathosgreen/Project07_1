@@ -55,7 +55,7 @@ public class QnaDAO {
                    	
             // 쿼리를 작성 :board테이블에 새로운 레코드 추가
             sql = "insert into qna(book_id,book_title,qna_writer,qna_content,";
-		    sql += "group_id,qora,reply,reg_date,qna_id) values(?,?,?,?,?,?,?,?,?)";
+		    sql += "group_id,qora,reply,reg_date,qna_id) values(?,?,?,?,?,?,?,?,QNA_SEQ.nextval)";
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, article.getBook_id());
             pstmt.setString(2, article.getBook_title());
