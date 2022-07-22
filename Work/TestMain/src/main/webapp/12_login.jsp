@@ -36,6 +36,10 @@
 			 	}
 			  });
 		});
+
+		$("#uAdmin").click(function(){//[Admin]버튼 클릭
+			window.location.href="${contextPath}/mg/managerLogin.do";
+		});
 		
 		$("#uUpdate").click(function(){//[회원 정보 변경]버튼 클릭
 			window.location.href="${contextPath}/modify.do";
@@ -73,6 +77,7 @@
               size="20" placeholder="6~16자 숫자/문자" maxlength="16">
             <button id="uLogin">로그인</button>
             <button id="uRes">회원가입</button>
+			<button id="uAdmin">관리자로그인</button>
      </ul>
   </div>
 </c:if>
