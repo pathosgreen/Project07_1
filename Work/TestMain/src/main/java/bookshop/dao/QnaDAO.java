@@ -65,7 +65,6 @@ public class QnaDAO {
             pstmt.setInt(6, article.getQora());
             pstmt.setInt(7, article.getReply());
 			pstmt.setTimestamp(8, article.getReg_date());
-			pstmt.setInt(9,article.getQna_id());
             pstmt.executeUpdate();
             
             x = 1; //레코드 추가 성공
