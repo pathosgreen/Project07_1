@@ -47,7 +47,7 @@ public class QnaDAO {
             pstmt = conn.prepareStatement("select max(qna_id) from qna");
             rs = pstmt.executeQuery();
             
-            if (rs.next()) 
+            if (rs.next())
                 x= rs.getInt(1);
             
             if(x > 0)
@@ -61,11 +61,10 @@ public class QnaDAO {
             pstmt.setString(2, article.getBook_title());
             pstmt.setString(3, article.getQna_writer());
             pstmt.setString(4, article.getQna_content());
-            pstmt.setInt(5, article.getGroup_id());
+            pstmt.setInt(5, group_id);
             pstmt.setInt(6, article.getQora());
             pstmt.setInt(7, article.getReply());
 			pstmt.setTimestamp(8, article.getReg_date());
-			pstmt.setInt(9,article.getQna_id());
             pstmt.executeUpdate();
             
             x = 1; //레코드 추가 성공
