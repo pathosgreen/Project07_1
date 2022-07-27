@@ -47,7 +47,7 @@ public class QnaDAO {
             pstmt = conn.prepareStatement("select max(qna_id) from qna");
             rs = pstmt.executeQuery();
             
-            if (rs.next()) 
+            if (rs.next())
                 x= rs.getInt(1);
             
             if(x > 0)
@@ -61,11 +61,10 @@ public class QnaDAO {
             pstmt.setString(2, article.getBook_title());
             pstmt.setString(3, article.getQna_writer());
             pstmt.setString(4, article.getQna_content());
-            pstmt.setInt(5, article.getGroup_id());
+            pstmt.setInt(5, group_id);
             pstmt.setInt(6, article.getQora());
             pstmt.setInt(7, article.getReply());
 			pstmt.setTimestamp(8, article.getReg_date());
-			pstmt.setInt(9,article.getQna_id());
             pstmt.executeUpdate();
             
             x = 1; //레코드 추가 성공
@@ -89,20 +88,19 @@ public class QnaDAO {
         try {
         	
             conn = getConnection();
-            
+            System.out.println("test insert");
             // 쿼리를 작성 :board테이블에 새로운 레코드 추가
             sql = "insert into qna(book_id,book_title,qna_writer,qna_content,";
-		    sql += "group_id,qora,reply,reg_date,qna_id) values(?,?,?,?,?,?,?,?,?)";
+		    sql += "group_id,qora,reply,reg_date,qna_id) values(?,?,?,?,?,?,?,?,QNA_SEQ.nextval)";
             pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, article.getBook_id());
             pstmt.setString(2, article.getBook_title());
             pstmt.setString(3, article.getQna_writer());
             pstmt.setString(4, article.getQna_content());
-            pstmt.setInt(5, group_id);
+            pstmt.setInt(5, article.getGroup_id());
             pstmt.setInt(6, article.getQora());
             pstmt.setInt(7, article.getReply());
 			pstmt.setTimestamp(8, article.getReg_date());
-			pstmt.setInt(9,article.getQna_id());
             pstmt.executeUpdate();
             
             sql="update qna set reply=? where qna_id=?";
