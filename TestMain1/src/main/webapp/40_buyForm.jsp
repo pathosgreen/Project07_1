@@ -105,7 +105,7 @@
   <tr> 
     <td colspan="2" align="center">
        <input type="submit" value="주문">
-       <input type="button" id="cancle" value="취소">
+       <button id="cancle">취소</button>
     </td>
   </tr>
 </table>
